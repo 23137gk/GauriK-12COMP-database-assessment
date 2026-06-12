@@ -11,15 +11,14 @@ function helloWorld() {
 
 function writeForm(){
   console.log("Welcome!")
-    // Get the form data
-  const name = document.getElementById("name").value;
+  const name = document.getElementById("name").value; // Get the form data
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
-     // Displaying in console
-  console.log("Name:", name);
+  console.log("Name:", name); // Displaying in console
   console.log("Age:", Age);
   console.log("Email Address:", EmailAddress);
 }
+
 
 
 

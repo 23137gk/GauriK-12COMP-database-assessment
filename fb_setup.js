@@ -7,10 +7,9 @@ const firebaseConfig = {
   projectId: "comp-database-assessment",
   storageBucket: "comp-database-assessment.firebasestorage.app",
   messagingSenderId: "1060896993817",
-  appId: "1:1060896993817:web:ec2b2c3ac7492aff8ab088",
-  measurementId: "G-JWW8WEHNKR"
+  appId: "1:1060896993817:web:e60f3e7dc857041e8ab088",
+  measurementId: "G-KLBKEKJED3"
 };
-
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
