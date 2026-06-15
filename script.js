@@ -1,9 +1,33 @@
+
+// Get the form data
+function writeForm(){
+
+  if (!GLOBAL_user) {
+    alert("You must log in first!");
+    return;
+  }
+  console.log("Welcome!")
+  const name = document.getElementById("name").value; 
+  const Age = document.getElementById("Age").value;
+  const EmailAddress = document.getElementById('EmailAddress').value;
+  firebase.database().ref('users/' + name).set({
+  name: name,
+  age: Age,
+  email: EmailAddress
+});
+  console.log("Data saved!");
+}
+
+
+
+
+
+
 var GLOBAL_user; // Google's user object
 
 // set up a listener for the login state of the user.
 function fb_login() {
   firebase.auth().onAuthStateChanged(fb_handleLogin);
-
   fb_popupLogin();
 }
 
@@ -11,7 +35,7 @@ function fb_login() {
 // run the google login popup
 function fb_popupLogin() {
   var provider = new firebase.auth.GoogleAuthProvider();
-
+  
   firebase.auth().signInWithPopup(provider).then((result) => {
       GLOBAL_user = result.user; // save the user details object to a global variable
       console.log("User has logged in:", GLOBAL_user.email);
@@ -27,28 +51,6 @@ function fb_handleLogin(_user) {
     console.log("User is logged in");
     GLOBAL_user = _user; //save the user details object to a global variable
   } else {
-    console.log("User is not logged in");
+    console.log("User is Not logged in - Starting the Popup Process");
   }
 }
-
-
-// Get the form data
-function writeForm(){
-
-  if (!GLOBAL_user) {
-    alert("You must log in first!");
-    return;
-  }
-  console.log("Welcome!")
-  const name = document.getElementById("name").value; 
-  const Age = document.getElementById("Age").value;
-  const EmailAddress = document.getElementById('EmailAddress').value;
-  
-  firebase.database().ref('users/' + name).set({
-  age: Age,
-  email: EmailAddress
-});
-
-  console.log("Data saved!");
-}
-
