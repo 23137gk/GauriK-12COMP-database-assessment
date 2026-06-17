@@ -10,15 +10,22 @@ function writeForm(){
   const name = document.getElementById("name").value; 
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
-  firebase.database().ref('users/' + name).set({
+  firebase.database().ref('userInfo/' + name).set({
   name: name,
   age: Age,
   email: EmailAddress
 });
   console.log("Data saved!");
+  // window.location.href = "Sparkly treats/game.js/"
 }
-
-
+/*
+async function blockingRead() {
+  console.log("Saving data");
+  var snapshot = await firebase.database().ref('/message').once('value');
+  displayRead(snapshot);
+  console.log("Leaving blockingRead")
+}
+*/
 
 
 
