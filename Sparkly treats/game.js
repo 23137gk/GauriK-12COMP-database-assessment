@@ -3,11 +3,13 @@
 /// Written by gauri
 //// 2/03/26
 /*******************************************************/
+var GLOBAL_user;
 
 // score and lives 
 let score = 0;
 let lives = 3;
 let gameState = 'play';
+
 
 /*******************************************************/
 // preload()
@@ -153,6 +155,7 @@ function draw() {
            uni1Sprite.vel.x = 0;
            lollyGroup.removeAll();
            pickleGroup.removeAll();
+
        }
 
 
@@ -183,6 +186,7 @@ function draw() {
        }
    }
 }
+
 
 /*******************************************************/
 //  END OF GAME

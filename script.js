@@ -1,22 +1,30 @@
 
 // Get the form data
-function writeForm(){
+async function writeForm(){
 
   if (!GLOBAL_user) {
     alert("You must log in first!");
     return;
   }
+
   console.log("Welcome!")
+
   const name = document.getElementById("name").value; 
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
-  firebase.database().ref('userInfo/' + name).set({
+
+  await firebase.database().ref('userInfo/' + GLOBAL_user.uid).set({
   name: name,
   age: Age,
   email: EmailAddress
 });
-  console.log("Data saved!");
-  // window.location.href = "Sparkly treats/game.js/"
+
+console.log("Data saved!");
+alert("Data saved!");
+
+// Go to another page AFTER saving
+    window.location.href = "Gamepage.html";
+
 }
 /*
 async function blockingRead() {
