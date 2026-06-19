@@ -3,7 +3,6 @@
 /// Written by gauri
 //// 2/03/26
 /*******************************************************/
-var GLOBAL_user;
 
 // score and lives 
 let score = 0;
@@ -156,6 +155,7 @@ function draw() {
            lollyGroup.removeAll();
            pickleGroup.removeAll();
 
+           
        }
 
 

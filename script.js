@@ -1,5 +1,4 @@
-
-// Get the form data
+// write the form data
 async function writeForm(){
 
   if (!GLOBAL_user) {
@@ -22,18 +21,13 @@ async function writeForm(){
 console.log("Data saved!");
 alert("Data saved!");
 
-// Go to another page AFTER saving
-    window.location.href = "Gamepage.html";
+// Go to other page AFTER saving the data
+  window.location.href = "Gamepage.html";
 
 }
-/*
-async function blockingRead() {
-  console.log("Saving data");
-  var snapshot = await firebase.database().ref('/message').once('value');
-  displayRead(snapshot);
-  console.log("Leaving blockingRead")
-}
-*/
+
+
+
 
 
 
