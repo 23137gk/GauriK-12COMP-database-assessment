@@ -22,18 +22,11 @@ async function writeForm(){
 console.log("Data saved!");
 alert("Data saved!");
 
-// Go to another page AFTER saving
+// Go to another page after saving the data
     window.location.href = "Gamepage.html";
 
 }
-/*
-async function blockingRead() {
-  console.log("Saving data");
-  var snapshot = await firebase.database().ref('/message').once('value');
-  displayRead(snapshot);
-  console.log("Leaving blockingRead")
-}
-*/
+
 
 
 

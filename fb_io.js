@@ -33,6 +33,6 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log("User:", user.email);
   } else {
     GLOBAL_user = null;
-    console.log("No user session");
+    console.log("No user");
   }
 });
