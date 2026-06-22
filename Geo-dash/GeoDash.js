@@ -15,40 +15,13 @@ function endGame(_player, _obstacle){
     screenSelector = "end";
     player.remove();
     obstacles.removeAll();
+
+    // save to database
+   saveScore("GeoDash", score);
     // Put your database writes here:
 
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

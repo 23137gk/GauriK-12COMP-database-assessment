@@ -26,6 +26,8 @@ function preload() {
 // setup()
 /*******************************************************/
 
+var GLOBAL_user;
+
 function setup() {
 	console.log("setup: ");
 	cnv = new Canvas(windowWidth, windowHeight);
@@ -155,7 +157,8 @@ function draw() {
            lollyGroup.removeAll();
            pickleGroup.removeAll();
 
-           
+           // save score to database
+           saveScore("SparklyTreats", score);
        }
 
 
