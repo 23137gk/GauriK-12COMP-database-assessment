@@ -19,10 +19,10 @@ function saveScore(gameName, score) {
       // saving the scores and names under the 'users' string on database
       firebase.database().ref("users/" + user.uid + "/games/" + gameName).update({
         Score: score,
-        name: name
+        gameName: gameName
       });
 
-      console.log("Saved:", name, score);
+      console.log("Saved:", gameName, score);
     });
 }
 
