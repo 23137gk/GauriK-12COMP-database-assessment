@@ -63,3 +63,39 @@ function fb_handleLogin(_user) {
     console.log("User is Not logged in - Starting the Popup Process");
   }
 }
+
+function fb_readListener() {
+ console.log("Read Listener");
+ firebase.database().ref('/message').on('value', display)
+}
+
+function display(snapshot) {
+  var dbData = snapshot.val();
+  if (dbData == null) { // if there is no data, dbData will be null
+    console.log('There was no record when trying to read the message');
+  }
+  else {
+    console.log('The message is:' + dbData)
+  }
+
+  console.log("Running display(), the message is:" + snapshot.val())
+}
+
+
+
+function fb_readHighScores() {
+  console.log("Reading high scores");
+  firebase.database().ref('/users/Sparkly treats').orderByValue().once('value', fb_displayHighScores)
+  console.log("Read high scores")
+}
+
+function fb_displayHighScores(snapshot) {
+  let highScores = snapshot.val()
+  console.log("Displaying high score")
+  console.log(snapshot.val())
+ snapshot.forEach(fb_showOneScore)
+}
+
+function fb_showOneScore(child) {
+  console.log(child.key+" got "+ child.val()+" points");
+}
