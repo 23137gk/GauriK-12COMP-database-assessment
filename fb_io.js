@@ -13,18 +13,22 @@ function saveScore(gameName, score) {
     .then((snapshot) => {
 
       const data = snapshot.val(); // getting the data from database
-      const name = data.name; // getting the name from the sign in form
+      const name = data.Username; // getting the name from the sign in form
 
 
       // saving the scores and names under the 'users' string on database
-      firebase.database().ref("users/" + user.uid + "/games/" + gameName).update({
-        Score: score,
-        gameName: gameName
-      });
+        firebase.database().ref("users/" + user.uid + "/games/" + gameName).set({
+          playerName: name,
+          Score: score
+        });
 
       console.log("Saved:", gameName, score);
     });
 }
+
+
+
+
 
 
 firebase.auth().onAuthStateChanged((user) => {

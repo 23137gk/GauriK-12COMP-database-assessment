@@ -26,12 +26,6 @@ alert("Data saved!");
 
 }
 
-
-
-
-
-
-
 var GLOBAL_user; // Google's user object
 
 // set up a listener for the login state of the user.
