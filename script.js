@@ -12,7 +12,7 @@ async function writeForm(){
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
 
-  await firebase.database().ref('userInfo/' + GLOBAL_user.uid).set({
+  await firebase.database().ref('userData/' + GLOBAL_user.uid).set({
   Username: name,
   age: Age,
   email: EmailAddress

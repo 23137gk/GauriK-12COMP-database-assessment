@@ -7,7 +7,7 @@ function saveScore(gameName, score) {
 
 
   // getting the users name from database
-  firebase.database().ref("userInfo/" + user.uid).once("value").then((snapshot) => {
+  firebase.database().ref("userData/" + user.uid).once("value").then((snapshot) => {
     const data = snapshot.val(); // getting the data from database
     const name = data.Username; // getting the name from the sign in form
 
