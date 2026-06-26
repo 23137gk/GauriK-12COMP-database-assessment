@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="style.css">
   <script src="./Sparkly treats/game.js"></script>
   <script src="./Geo-dash/GeoDash.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+
+  <script src="fb_setup.js"></script>
+  <script src="fb_io.js"></script>
 </head>
 
 
@@ -24,13 +32,18 @@
     
     <div class="container">
       <div class="column">
-
         <button onclick="location.href='./Sparkly treats/game.html'">Play Sparkly Treats</button>
         <button onclick="location.href='./Geo-dash/Geoindex.html'">Play Geo-dash</button>
         <button onclick="location.href='../Highscores.html'"> See High Scores</button>
-
-
     </div>
+
+    <h2>Leave a Review</h2>
+    <textarea id="review"></textarea>
+    <button onclick="saveReview()">Submit Review</button>
+    <p id="reviewMessage"></p>
+
+    <button onclick="loadReviews()">Show Reviews</button>
+    <div id="allReviews"></div>
 
   </header>
 </body>

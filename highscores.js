@@ -3,41 +3,46 @@ window.onload = function () {
   loadHighScores("GeoDash", "geoList");
 };
 
+
+// loading the hgihscores for both games
 function loadHighScores(gameName, listId) {
 
-  firebase.database().ref("users").once("value")
-    .then((snapshot) => {
+  // getting all users from database
+  firebase.database().ref("users").once("value").then((snapshot) => {
+    let scores = [];
+    snapshot.forEach((userSnapshot) => {
 
-      let scores = [];
+      // get the users score from the game
+      let gameData = userSnapshot.child("games/" + gameName);
 
-      snapshot.forEach((userSnapshot) => {
+      // check if score is in database
+      if (gameData.exists()) {
 
-        let gameData = userSnapshot.child("games/" + gameName);
-
-        if (gameData.exists()) {
-
+        // adding users name and score to array
           scores.push({
             name: gameData.child("playerName").val(),
             score: gameData.child("Score").val()
           });
-
-        }
-      });
-
-      scores.sort((a, b) => b.score - a.score);
-
-      displayScores(scores, listId);
-
+      }
     });
+
+    // sorting scores from highest to lowest
+    scores.sort(function(a, b) {
+      return b.score - a.score;
+    });
+
+    displayScores(scores, listId);
+  });
 }
 
-function displayScores(scores, listId) {
 
+// displaying the scores
+function displayScores(scores, listId) {
   let list = document.getElementById(listId);
   list.innerHTML = "";
 
-  scores.forEach((player) => {
-    list.innerHTML += `<li>${player.name} - ${player.score}</li>`;
+  scores.forEach(function(player) {
+    // adding the user name and score
+    list.innerHTML += "<li>" + player.name + " - " + player.score + "</li>";
   });
-
 }
