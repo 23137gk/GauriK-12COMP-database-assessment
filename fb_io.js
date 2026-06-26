@@ -25,7 +25,6 @@ function saveScore(gameName, score) {
 
 
 
-
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     GLOBAL_user = user;
@@ -56,7 +55,7 @@ function saveReview() {
   }
 
   // get the username form firebase
-  firebase.database().ref("userInfo/" + user.uid).once("value").then(function(snapshot){
+  firebase.database().ref("userData/" + user.uid).once("value").then(function(snapshot){
     let name = snapshot.val().Username;
 
     // putting the review in firebase
