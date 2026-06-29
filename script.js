@@ -6,6 +6,17 @@ async function writeForm(){
     return;
   }
 
+
+    if (
+    document.getElementById("name").value === "" ||
+    document.getElementById("Age").value === "" ||
+    document.getElementById("EmailAddress").value === ""
+  ) {
+    alert("Please fill out all the fields before submitting!");
+    return;
+  }
+
+
   console.log("Welcome!")
 
   const name = document.getElementById("name").value; 
@@ -42,6 +53,7 @@ function fb_popupLogin() {
   firebase.auth().signInWithPopup(provider).then((result) => {
       GLOBAL_user = result.user; // save the user details object to a global variable
       console.log("User has logged in:", GLOBAL_user.email);
+      alert("You are now logged in!");
     })
     .catch((error) => {
       console.log("Login error:", error);
