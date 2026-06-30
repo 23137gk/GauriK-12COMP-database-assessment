@@ -1,3 +1,6 @@
+
+firebase.auth().signOut();
+
 // write the form data
 async function writeForm(){
 
@@ -21,6 +24,11 @@ async function writeForm(){
   const name = document.getElementById("name").value; 
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
+
+  if (!EmailAddress.includes("@")) {
+  alert("Please enter a valid email address!");
+  return;
+}
 
   if (Age < 1) {
   alert("Age must be 1 or older!");
@@ -73,6 +81,7 @@ function fb_handleLogin(_user) {
     console.log("User is Not logged in - Starting the Popup Process");
   }
 }
+
 
 function fb_readListener() {
  console.log("Read Listener");
