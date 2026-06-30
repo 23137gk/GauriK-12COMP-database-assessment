@@ -7,7 +7,7 @@ async function writeForm(){
   }
 
 
-    if (
+  if (
     document.getElementById("name").value === "" ||
     document.getElementById("Age").value === "" ||
     document.getElementById("EmailAddress").value === ""
@@ -16,12 +16,16 @@ async function writeForm(){
     return;
   }
 
-
   console.log("Welcome!")
 
   const name = document.getElementById("name").value; 
   const Age = document.getElementById("Age").value;
   const EmailAddress = document.getElementById('EmailAddress').value;
+
+  if (Age < 1) {
+  alert("Age must be 1 or older!");
+  return;
+ }
 
   await firebase.database().ref('userData/' + GLOBAL_user.uid).set({
   Username: name,
