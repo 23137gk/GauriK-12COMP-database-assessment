@@ -1,5 +1,4 @@
 
-firebase.auth().signOut();
 
 // write the form data
 async function writeForm(){
@@ -49,13 +48,42 @@ alert("Data saved!");
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var GLOBAL_user; // Google's user object
 
-// set up a listener for the login state of the user.
-function fb_login() {
-  firebase.auth().onAuthStateChanged(fb_handleLogin);
-  fb_popupLogin();
-}
+
+// signing out when page reloads
+window.onload = function () {
+  firebase.auth().signOut();
+};
+
+// login state
+firebase.auth().onAuthStateChanged((user) => {
+  GLOBAL_user = user;
+
+  if (user) {
+    console.log("Logged in:", user.email);
+  } else {
+    console.log("Logged out");
+  }
+});
 
 
 // run the google login popup
